@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         // Attach the adapter to a ListView
         trendingListView.setAdapter(adapter);
 
+        // get list view data
         new getYoutube().execute();
 
 

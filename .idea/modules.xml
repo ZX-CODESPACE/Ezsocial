@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Ezsocial.iml" filepath="$PROJECT_DIR$/Ezsocial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EzSocial.iml" filepath="$PROJECT_DIR$/EzSocial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>

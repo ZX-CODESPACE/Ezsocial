@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserLoginActivity" />
-        <activity android:name=".UserSignupActivity"></activity>
+        <activity android:name=".UserSignupActivity" />
+        <activity android:name=".SocialProfileActivity"></activity>
     </application>
 
 </manifest>
