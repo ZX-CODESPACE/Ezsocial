@@ -18,7 +18,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:onClick="userLogin"
-        android:layout_height="40dp" />
+        android:background="@drawable/btn_style"
+        android:layout_height="40dp"
+        android:textColor="#fff" />
 
     <Button
         android:text="Submit"
@@ -30,7 +32,9 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="12dp"
         android:onClick="submitSearch"
-        android:textSize="12sp" />
+        android:background="@drawable/btn_style"
+        android:textSize="12sp"
+        android:textColor="?attr/colorBackgroundFloating" />
 
     <EditText
         android:layout_width="wrap_content"
