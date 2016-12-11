@@ -1,7 +1,11 @@
 package com.example.zhexiao.ezsocial;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SocialProfileActivity extends AppCompatActivity {
@@ -16,7 +20,11 @@ public class SocialProfileActivity extends AppCompatActivity {
             String title = extras.getString("title");
             String description = extras.getString("description");
 
-            Toast.makeText(this, title+" |||| "+description, Toast.LENGTH_LONG).show();
+            TextView titleObj = (TextView) findViewById(R.id.s_p_title);
+            TextView descriptionObj = (TextView) findViewById(R.id.s_p_description);
+
+            titleObj.setText(title);
+            descriptionObj.setText(description);
         }
     }
 

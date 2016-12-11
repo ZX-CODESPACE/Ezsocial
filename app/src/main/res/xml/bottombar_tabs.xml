@@ -1,0 +1,11 @@
+<tabs>
+    <tab
+        id="@+id/tab_trending"
+        icon="@mipmap/ic_social_whatshot"
+        title="Trending"/>
+
+    <tab
+        id="@+id/tab_user"
+        icon="@mipmap/ic_social_person"
+        title="User"/>
+</tabs>

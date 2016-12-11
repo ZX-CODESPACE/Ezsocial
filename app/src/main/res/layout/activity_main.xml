@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.zhexiao.ezsocial.MainActivity">
 
     <Button
@@ -50,12 +47,36 @@
         android:layout_alignParentStart="true"
         android:hint="Search..." />
 
+    <!-- This could be your fragment container, or something -->
+
+    <FrameLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <com.roughike.bottombar.BottomBar
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            app:bb_inActiveTabColor="#000000"
+            app:bb_activeTabColor="#F22613"
+            app:bb_tabXmlResource="@xml/bottombar_tabs" >
+
+        </com.roughike.bottombar.BottomBar>
+    </FrameLayout>
+
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/trending"
-        android:layout_marginTop="28dp"
-        android:layout_below="@+id/submitSearch"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/contentContainer"
+        android:layout_height="250dp" />
+
+
 </RelativeLayout>
