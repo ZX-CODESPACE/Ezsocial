@@ -1,23 +1,29 @@
 package com.example.zhexiao.ezsocial;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.zhexiao.ezsocial.apis.Youtube;
+import com.example.zhexiao.ezsocial.components.ZBottomBar;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG = MainActivity.class.getSimpleName();
 
+    public static Boolean load_home_page = true;
+
     // api var
     private String apiUrl;
+    private String apiKey = "AIzaSyCXpnwSZGQQRRk8S2O8DJdAmovwwNj7TlY";
     private Integer apiResultCount = 10;
-    private String apiKeyword = "espn";
+    private String apiKeyword = "";
 
     // view var
     private ListView trendingListView;
@@ -34,12 +40,34 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        initBottombar();
+
         // init api information
         initApi();
     }
 
+    private void initBottombar() {
+        BottomBar botBar = (BottomBar) findViewById(R.id.bottomBar);
+        botBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(int tabId) {
+                if (tabId == R.id.tab_trending) {
+                    Log.d("ZBottombar", "tab trending");
+                }else if(tabId == R.id.tab_user){
+                    Log.d("ZBottombar", "tab user");
+                    setContentView(R.layout.activity_user_login);
+                }
+            }
+        });
+    }
+
+
     private void initApi() {
-        apiUrl = "https://www.googleapis.com/youtube/v3/search?safeSearch=moderate&q="+apiKeyword+"&maxResults="+apiResultCount+"&type=channel&part=snippet&key=AIzaSyCXpnwSZGQQRRk8S2O8DJdAmovwwNj7TlY";
+        if(apiKeyword == ""){
+            apiUrl = "https://www.googleapis.com/youtube/v3/search?chart=mostPopular&maxResults="+apiResultCount+"&type=channel&part=snippet&key="+apiKey;
+        }else{
+            apiUrl = "https://www.googleapis.com/youtube/v3/search?q="+apiKeyword+"&maxResults="+apiResultCount+"&type=channel&part=snippet&key="+apiKey;
+        }
 
         // get json data from api
         Youtube yt = new Youtube(this, apiUrl);
@@ -61,10 +89,5 @@ public class MainActivity extends AppCompatActivity {
         adapter.clear();
 
         initApi();
-    }
-
-    public void userLogin(View view) {
-        Intent intent = new Intent(getApplicationContext(), com.example.zhexiao.ezsocial.UserLoginActivity.class);
-        startActivity(intent);
     }
 }

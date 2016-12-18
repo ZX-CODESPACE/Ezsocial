@@ -8,6 +8,7 @@ public class SocialData {
     private String imageUrl;
     private String title;
     private String description;
+    private String channel_id;
 
     public SocialData() {
     }
@@ -34,5 +35,13 @@ public class SocialData {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getChannel_id() {
+        return channel_id;
+    }
+
+    public void setChannel_id(String channel_id) {
+        this.channel_id = channel_id;
     }
 }

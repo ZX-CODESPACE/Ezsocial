@@ -51,6 +51,7 @@ public class Youtube extends AsyncTask<Void, Void, Void> {
 
                     String name = snippet.getString("title");
                     String description = snippet.getString("description");
+                    String channel_id = snippet.getString("channelId");
 
                     //get profile image
                     JSONObject thumbnails = snippet.getJSONObject("thumbnails");
@@ -64,6 +65,7 @@ public class Youtube extends AsyncTask<Void, Void, Void> {
                     sd.setTitle(name);
                     sd.setDescription(description);
                     sd.setImageUrl(profile);
+                    sd.setChannel_id(channel_id);
 
                     social_array.add(sd);
                 }

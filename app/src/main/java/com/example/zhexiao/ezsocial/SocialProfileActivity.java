@@ -19,12 +19,15 @@ public class SocialProfileActivity extends AppCompatActivity {
         if (extras != null) {
             String title = extras.getString("title");
             String description = extras.getString("description");
-
+            String channel_id = extras.getString("channel_id");
+            
             TextView titleObj = (TextView) findViewById(R.id.s_p_title);
             TextView descriptionObj = (TextView) findViewById(R.id.s_p_description);
 
             titleObj.setText(title);
             descriptionObj.setText(description);
+
+            Log.d("profile", channel_id);
         }
     }
 

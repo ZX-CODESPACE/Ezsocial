@@ -72,6 +72,7 @@ class CustomListAdapter extends ArrayAdapter<SocialData>{
                 Intent intent = new Intent(ctx, SocialProfileActivity.class);
                 intent.putExtra("title", sd.getTitle());
                 intent.putExtra("description", sd.getDescription());
+                intent.putExtra("channel_id", sd.getChannel_id());
                 ctx.startActivities(new Intent[]{intent});
             }
         });
