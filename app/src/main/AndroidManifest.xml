@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".UserLoginActivity" />
         <activity android:name=".UserSignupActivity" />
-        <activity android:name=".SocialProfileActivity"></activity>
+        <activity android:name=".SocialProfileActivity" />
+        <activity android:name=".YoutubePlayerActivity"></activity>
     </application>
 
 </manifest>

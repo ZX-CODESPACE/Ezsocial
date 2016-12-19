@@ -9,7 +9,7 @@ import com.example.zhexiao.ezsocial.apis.Youtube;
 
 public class SocialProfileActivity extends AppCompatActivity {
     private String api_url;
-    private String api_key = "AIzaSyCXpnwSZGQQRRk8S2O8DJdAmovwwNj7TlY";
+    private String api_key = "AIzaSyDndAMmVKHXfORaPUHBCI9Bqb7ENIqKRMc";
     private Integer api_result_count = 10;
 
     @Override

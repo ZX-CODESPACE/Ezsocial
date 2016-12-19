@@ -50,8 +50,6 @@ public class CustomListAdapter extends ArrayAdapter<SocialData>{
         titleObj.setText(sd.getTitle());
         descriptionObj.setText(sd.getDescription());
 
-        Log.d("data type", data_type);
-
         // bind title event
         titleObj.setTag(sd);
         titleObj.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +64,9 @@ public class CustomListAdapter extends ArrayAdapter<SocialData>{
                     intent.putExtra("channel_id", sd.getChannel_id());
                     context.startActivities(new Intent[]{intent});
                 }else if(data_type == "channel"){
-                    Log.d("data type", "channels");
-                    Log.d("video id", sd.getVideo_id());
+                    Intent intent = new Intent(context, YoutubePlayerActivity.class);
+                    intent.putExtra("video_id", sd.getVideo_id());
+                    context.startActivities(new Intent[]{intent});
                 }
             }
         });

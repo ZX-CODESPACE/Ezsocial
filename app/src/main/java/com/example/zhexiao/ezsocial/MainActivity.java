@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     // api var
     private String apiUrl;
-    private String apiKey = "AIzaSyCXpnwSZGQQRRk8S2O8DJdAmovwwNj7TlY";
+    private String apiKey = "AIzaSyDndAMmVKHXfORaPUHBCI9Bqb7ENIqKRMc";
     private Integer apiResultCount = 10;
     private String apiKeyword = "";
 
