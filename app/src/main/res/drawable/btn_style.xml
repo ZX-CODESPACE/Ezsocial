@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--default-->
+    <!--<item android:color="@color/colorWhite" android:state_enabled="true" />-->
+    <!--<item android:color="@color/colorPrimaryDark" android:state_enabled="false" />-->
+
+
     <item android:state_pressed="false">
         <shape>
             <solid android:color="#6e92df"/>
@@ -15,4 +18,5 @@
             <corners android:radius="0dp"/>
         </shape>
     </item>
+
 </selector>

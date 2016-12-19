@@ -1,3 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">EzSocial</string>
+    <string name="trending">Trending</string>
+    <string name="sign_in">Sign In</string>
+    <string name="favorties">Favorites</string>
+    <string name="text_trending">Trending</string>
+    <string name="text_sign_in">SignIn</string>
+    <string name="text_favorites">Favorites</string>
+    <string name="about">About</string>
 </resources>

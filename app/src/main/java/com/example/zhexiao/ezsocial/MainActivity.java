@@ -2,17 +2,17 @@ package com.example.zhexiao.ezsocial;
 
 import android.content.Intent;
 import android.os.StrictMode;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.zhexiao.ezsocial.apis.Youtube;
-import com.example.zhexiao.ezsocial.components.ZBottomBar;
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabSelectListener;
 
 import java.util.ArrayList;
 
@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private ListView trendingListView;
     private CustomListAdapter adapter;
 
+    private Intent intent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,18 +52,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initBottombar() {
-        BottomBar botBar = (BottomBar) findViewById(R.id.bottomBar);
-        botBar.setOnTabSelectListener(new OnTabSelectListener() {
-            @Override
-            public void onTabSelected(int tabId) {
-                if (tabId == R.id.tab_trending) {
-                    Log.d("ZBottombar", "tab trending");
-                }else if(tabId == R.id.tab_user){
-                    Log.d("ZBottombar", "tab user");
-                    setContentView(R.layout.activity_user_login);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Log.d("test item", String.valueOf(item.getMenuInfo()));
+
+                    switch (item.getItemId()) {
+                        case R.id.btn_trending:
+                            intent = new Intent(getApplicationContext(), com.example.zhexiao.ezsocial.MainActivity.class);
+                            startActivity(intent);
+                            break;
+                        case R.id.btn_about:
+
+                            break;
+                        case R.id.btn_sign_in:
+                            intent = new Intent(getApplicationContext(), com.example.zhexiao.ezsocial.UserLoginActivity.class);
+                            startActivity(intent);
+                            break;
+                    }
+                    return false;
                 }
-            }
-        });
+            });
     }
 
 

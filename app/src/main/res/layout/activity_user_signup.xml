@@ -53,6 +53,10 @@
         android:text="Sign Up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawable="@drawable/btn_style"
+        android:textSize="12sp"
+        android:textColor="@color/color_white"
+        android:background="@color/button_background_color"
         android:id="@+id/r_b_signup"
         android:onClick="signUp"/>
 
