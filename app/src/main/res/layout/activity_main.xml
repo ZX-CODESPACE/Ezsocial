@@ -11,41 +11,39 @@
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/keyword"
         android:hint="Search..."
+        android:background="@drawable/image_style"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/submitSearch"
+        android:layout_toStartOf="@+id/submitSearch" />
+
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:id="@+id/submitSearch"
+        android:onClick="submitSearch"
+        android:background="@drawable/btn_style"
+        android:textSize="12sp"
+        android:textColor="?attr/colorBackgroundFloating"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <ListView
         android:layout_width="match_parent"
         android:id="@+id/trending"
-        android:layout_below="@+id/submitSearch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp"
-        android:layout_height="360dp" />
-
-    <Button
-        android:text="Submit"
-        android:layout_width="wrap_content"
-        android:id="@+id/submitSearch"
-        android:layout_marginTop="10dp"
-        android:onClick="submitSearch"
-        android:background="@drawable/btn_style"
-        android:textSize="12sp"
-        android:textColor="?attr/colorBackgroundFloating"
-        android:layout_height="30dp"
-        android:layout_marginRight="11dp"
-        android:layout_marginEnd="11dp"
         android:layout_below="@+id/keyword"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_height="420dp"
+        android:layout_marginTop="10dp" />
 
 
 </RelativeLayout>
