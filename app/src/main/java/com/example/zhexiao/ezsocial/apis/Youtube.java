@@ -4,7 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ListView;
 
+import com.example.zhexiao.ezsocial.CustomListAdapter;
 import com.example.zhexiao.ezsocial.HttpHandler;
 import com.example.zhexiao.ezsocial.SocialData;
 
@@ -20,14 +22,21 @@ import java.util.ArrayList;
  */
 
 public class Youtube extends AsyncTask<Void, Void, Void> {
-    private String api_url;
     private Context context;
-    private ProgressDialog prog_dialog;
+    private String api_url;
+    private ListView list_view;
+    private String data_type;
+
     public ArrayList<SocialData> social_array = new ArrayList<SocialData>();
 
-    public Youtube(Context context, String api_url) {
+    protected ProgressDialog pro_dialog;
+
+
+    public Youtube(Context context, String api_url, ListView list_view, String data_type) {
         this.context = context;
         this.api_url = api_url;
+        this.list_view = list_view;
+        this.data_type = data_type;
     }
 
     @Override
@@ -49,9 +58,19 @@ public class Youtube extends AsyncTask<Void, Void, Void> {
 
                     JSONObject snippet = youtubeObj.getJSONObject("snippet");
 
+                    // get snippet data
                     String name = snippet.getString("title");
                     String description = snippet.getString("description");
                     String channel_id = snippet.getString("channelId");
+
+                    // get video id
+                    String video_id;
+                    if(data_type == "channel"){
+                        JSONObject video_id_json = youtubeObj.getJSONObject("id");
+                        video_id = video_id_json.getString("videoId");
+                    }else{
+                        video_id = null;
+                    }
 
                     //get profile image
                     JSONObject thumbnails = snippet.getJSONObject("thumbnails");
@@ -60,12 +79,13 @@ public class Youtube extends AsyncTask<Void, Void, Void> {
 
                     //Log.d("Youtube project", "Youtube obj snippet: " + name + "-----"+ profile );
 
-                    // tmp hash map for single contact
+                    // save object data
                     SocialData sd = new SocialData();
                     sd.setTitle(name);
                     sd.setDescription(description);
-                    sd.setImageUrl(profile);
                     sd.setChannel_id(channel_id);
+                    sd.setVideo_id(video_id);
+                    sd.setImageUrl(profile);
 
                     social_array.add(sd);
                 }
@@ -82,10 +102,10 @@ public class Youtube extends AsyncTask<Void, Void, Void> {
         super.onPreExecute();
 
         // Showing progress dialog
-        prog_dialog = new ProgressDialog(context);
-        prog_dialog.setMessage("Please wait........");
-        prog_dialog.setCancelable(false);
-        prog_dialog.show();
+        pro_dialog = new ProgressDialog(context);
+        pro_dialog.setMessage("Please wait........");
+        pro_dialog.setCancelable(false);
+        pro_dialog.show();
     }
 
     @Override
@@ -93,9 +113,12 @@ public class Youtube extends AsyncTask<Void, Void, Void> {
         super.onPostExecute(result);
 
         // Dismiss the progress dialog
-        if (prog_dialog.isShowing()){
-            prog_dialog.dismiss();
+        if (pro_dialog.isShowing()){
+            pro_dialog.dismiss();
         }
+
+        CustomListAdapter adapter = new CustomListAdapter(context, 0, social_array, data_type);
+        list_view.setAdapter(adapter);
     }
 
 }

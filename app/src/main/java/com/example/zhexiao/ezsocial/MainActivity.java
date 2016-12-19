@@ -14,8 +14,11 @@ import com.example.zhexiao.ezsocial.components.ZBottomBar;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private String TAG = MainActivity.class.getSimpleName();
+    public ArrayList<SocialData> social_array = new ArrayList<SocialData>();
 
     public static Boolean load_home_page = true;
 
@@ -69,24 +72,14 @@ public class MainActivity extends AppCompatActivity {
             apiUrl = "https://www.googleapis.com/youtube/v3/search?q="+apiKeyword+"&maxResults="+apiResultCount+"&type=channel&part=snippet&key="+apiKey;
         }
 
-        // get json data from api
-        Youtube yt = new Youtube(this, apiUrl);
-        yt.execute();
-
-        // get list view object
         trendingListView = (ListView) findViewById(R.id.trending);
-
-        // bind social data with adapter
-        adapter = new CustomListAdapter(this, yt.social_array);
-        trendingListView.setAdapter(adapter);
+        Youtube yt = new Youtube(this, apiUrl, trendingListView, "list_channels");
+        yt.execute();
     }
 
     public void submitSearch(View view) {
         EditText keywordObj = (EditText) findViewById(R.id.keyword);
         apiKeyword = keywordObj.getText().toString();
-
-        // clear previous data
-        adapter.clear();
 
         initApi();
     }

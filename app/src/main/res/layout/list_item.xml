@@ -23,7 +23,7 @@
             android:id="@+id/list_item_name"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:textSize="18sp"
             android:layout_weight="0.55" />
 
