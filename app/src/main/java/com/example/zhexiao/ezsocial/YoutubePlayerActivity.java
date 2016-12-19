@@ -2,9 +2,7 @@ package com.example.zhexiao.ezsocial;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
