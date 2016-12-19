@@ -67,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                             break;
                         case R.id.btn_about:
-
+                            intent = new Intent(getApplicationContext(), com.example.zhexiao.ezsocial.AboutActivity.class);
+                            startActivity(intent);
                             break;
                         case R.id.btn_sign_in:
                             intent = new Intent(getApplicationContext(), com.example.zhexiao.ezsocial.UserLoginActivity.class);
